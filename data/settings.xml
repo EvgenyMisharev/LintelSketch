@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<GlobalSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <tempPath>C:\RebarScetch</tempPath>
+  <fontName>Isocpeur</fontName>
+  <defaultFontSize>45</defaultFontSize>
+  <defautLengthAccuracy>5</defautLengthAccuracy>
+  <linesSpacing>1.8</linesSpacing>
+  <fontStyle>Regular</fontStyle>
+  <imageParamName>RebarImage</imageParamName>
+</GlobalSettings>
