@@ -153,7 +153,8 @@ namespace LintelSketch
                                             Parameter lintInstanceParam = lint.LookupParameter(familyOrParameterName);
                                             if(lintInstanceParam != null)
                                             {
-                                                if (((int)(lintInstanceParam.Definition as InternalDefinition).BuiltInParameter).Equals((int)BuiltInParameter.INSTANCE_ELEVATION_PARAM))
+                                                if (((int)(lintInstanceParam.Definition as InternalDefinition).BuiltInParameter).Equals((int)BuiltInParameter.INSTANCE_ELEVATION_PARAM)
+                                                    || ((int)(lintInstanceParam.Definition as InternalDefinition).BuiltInParameter).Equals((int)BuiltInParameter.INSTANCE_FREE_HOST_OFFSET_PARAM))
                                                 {
                                                     string levelResult = "";
                                                     if (lintInstanceParam.AsDouble() > 0)
