@@ -81,7 +81,7 @@ namespace LintelSketch
                     //Добавление картинок перемычкам
                     foreach (FamilyInstance lint in lintelsList)
                     {
-                        string scetchImageName = $"{imagesPrefix}_{lint.Symbol.Name}_{lint.get_Parameter(BuiltInParameter.INSTANCE_ELEVATION_PARAM).AsValueString()}.bmp";
+                        string scetchImageName = $"{imagesPrefix}_{lint.Symbol.Name}.bmp";
                         ImageType lintelImageType = new FilteredElementCollector(doc)
                             .WhereElementIsElementType()
                             .OfClass(typeof(ImageType))
@@ -156,20 +156,98 @@ namespace LintelSketch
                                                 if (((int)(lintInstanceParam.Definition as InternalDefinition).BuiltInParameter).Equals((int)BuiltInParameter.INSTANCE_ELEVATION_PARAM)
                                                     || ((int)(lintInstanceParam.Definition as InternalDefinition).BuiltInParameter).Equals((int)BuiltInParameter.INSTANCE_FREE_HOST_OFFSET_PARAM))
                                                 {
-                                                    string levelResult = "";
-                                                    if (lintInstanceParam.AsDouble() > 0)
+                                                    List<FamilyInstance> lintelListForElevation = new FilteredElementCollector(doc)
+                                                        .OfCategory(BuiltInCategory.OST_GenericModel)
+                                                        .OfClass(typeof(FamilyInstance))
+                                                        .WhereElementIsNotElementType()
+                                                        .Cast<FamilyInstance>()
+                                                        .Where(fi => fi.Symbol.Id == lint.Symbol.Id)
+                                                        .ToList();
+
+                                                    if(lintelListForElevation.Count > 1)
                                                     {
-                                                        levelResult = "+" + Math.Round((lintInstanceParam.AsDouble() * 304.8 / 1000), 3).ToString("0.000");
+                                                        List<double> elevationList = new List<double>();
+                                                        foreach(FamilyInstance l in lintelListForElevation)
+                                                        {
+                                                            if(l.get_Parameter(BuiltInParameter.INSTANCE_ELEVATION_PARAM) != null
+                                                                && !elevationList.Contains(Math.Round(l.get_Parameter(BuiltInParameter.INSTANCE_ELEVATION_PARAM).AsDouble(), 6)))
+                                                            {
+                                                                elevationList.Add(Math.Round(l.get_Parameter(BuiltInParameter.INSTANCE_ELEVATION_PARAM).AsDouble(), 6));
+                                                            }
+                                                            else if(l.get_Parameter(BuiltInParameter.INSTANCE_FREE_HOST_OFFSET_PARAM) != null
+                                                                && !elevationList.Contains(Math.Round(l.get_Parameter(BuiltInParameter.INSTANCE_FREE_HOST_OFFSET_PARAM).AsDouble(), 6)))
+                                                            {
+                                                                elevationList.Add(Math.Round(l.get_Parameter(BuiltInParameter.INSTANCE_FREE_HOST_OFFSET_PARAM).AsDouble(), 6));
+                                                            }
+                                                        }
+                                                        if(elevationList.Count > 1)
+                                                        {
+                                                            double minElevation = elevationList.Min();
+                                                            double maxElevation = elevationList.Max();
+                                                            string minElevationStr = "";
+                                                            string maxElevationStr = "";
+                                                            if (minElevation > 0)
+                                                            {
+                                                                minElevationStr = "+" + Math.Round((minElevation * 304.8 / 1000), 3).ToString("0.000");
+                                                            }
+                                                            else
+                                                            {
+                                                                minElevationStr = Math.Round((minElevation * 304.8 / 1000), 3).ToString("0.000");
+                                                            }
+
+                                                            if (maxElevation > 0)
+                                                            {
+                                                                maxElevationStr = "+" + Math.Round((maxElevation * 304.8 / 1000), 3).ToString("0.000");
+                                                            }
+                                                            else
+                                                            {
+                                                                maxElevationStr = Math.Round((maxElevation * 304.8 / 1000), 3).ToString("0.000");
+                                                            }
+
+                                                            gr.DrawString(minElevationStr, fnt, Brushes.Black, 0, 0, format);
+                                                            gr.DrawString("...", fnt, Brushes.Black, 0, -40.0F, format);
+                                                            gr.DrawString(maxElevationStr, fnt, Brushes.Black, 0, -60.0F, format);
+                                                            gr.RotateTransform(angle);
+                                                            gr.TranslateTransform(-b, -h);
+                                                            continue;
+                                                        }
+                                                        else
+                                                        {
+                                                            string levelResult = "";
+                                                            if (lintInstanceParam.AsDouble() > 0)
+                                                            {
+                                                                levelResult = "+" + Math.Round((lintInstanceParam.AsDouble() * 304.8 / 1000), 3).ToString("0.000");
+                                                            }
+                                                            else
+                                                            {
+                                                                levelResult = Math.Round((lintInstanceParam.AsDouble() * 304.8 / 1000), 3).ToString("0.000");
+                                                            }
+
+                                                            gr.DrawString(levelResult, fnt, Brushes.Black, 0, 0, format);
+                                                            gr.RotateTransform(angle);
+                                                            gr.TranslateTransform(-b, -h);
+                                                            continue;
+                                                        }
+                                                       
                                                     }
                                                     else
                                                     {
-                                                        levelResult = Math.Round((lintInstanceParam.AsDouble() * 304.8 / 1000), 3).ToString("0.000");
+                                                        string levelResult = "";
+                                                        if (lintInstanceParam.AsDouble() > 0)
+                                                        {
+                                                            levelResult = "+" + Math.Round((lintInstanceParam.AsDouble() * 304.8 / 1000), 3).ToString("0.000");
+                                                        }
+                                                        else
+                                                        {
+                                                            levelResult = Math.Round((lintInstanceParam.AsDouble() * 304.8 / 1000), 3).ToString("0.000");
+                                                        }
+
+                                                        gr.DrawString(levelResult, fnt, Brushes.Black, 0, 0, format);
+                                                        gr.RotateTransform(angle);
+                                                        gr.TranslateTransform(-b, -h);
+                                                        continue;
                                                     }
 
-                                                    gr.DrawString(levelResult, fnt, Brushes.Black, 0, 0, format);
-                                                    gr.RotateTransform(angle);
-                                                    gr.TranslateTransform(-b, -h);
-                                                    continue;
                                                 }
                                                 else
                                                 {
@@ -191,7 +269,7 @@ namespace LintelSketch
                                     }
                                 }
                                 string symbolNameFormat = lint.Symbol.Name.Replace('/', '_');
-                                string scetchImagePath = Path.Combine(scetchTemplateFolderPath, $"{imagesPrefix}_{symbolNameFormat}_{lint.get_Parameter(BuiltInParameter.INSTANCE_ELEVATION_PARAM).AsValueString()}.bmp");
+                                string scetchImagePath = Path.Combine(scetchTemplateFolderPath, $"{imagesPrefix}_{symbolNameFormat}.bmp");
                                 templateImage.Save(scetchImagePath);
 
                                 ImageType newLintelImageType = ImageType.Create(doc, scetchImagePath);
