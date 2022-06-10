@@ -18,6 +18,7 @@ namespace LintelSketch
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
+
             Document doc = commandData.Application.ActiveUIDocument.Document;
             Selection sel = commandData.Application.ActiveUIDocument.Selection;
 
@@ -272,13 +273,19 @@ namespace LintelSketch
                                 string scetchImagePath = Path.Combine(scetchTemplateFolderPath, $"{imagesPrefix}_{symbolNameFormat}.bmp");
                                 templateImage.Save(scetchImagePath);
 
+#if R2019 || R2020 || R2021
                                 ImageType newLintelImageType = ImageType.Create(doc, scetchImagePath);
                                 lint.LookupParameter("LintelImage").Set(newLintelImageType.Id);
                                 File.Delete(scetchImagePath);
+#else
+                                ImageTypeOptions ito = new ImageTypeOptions(scetchImagePath, false, ImageTypeSource.Import);
+                                ImageType newLintelImageType = ImageType.Create(doc, ito);
+                                lint.LookupParameter("LintelImage").Set(newLintelImageType.Id);
+                                File.Delete(scetchImagePath);
+#endif
                             }
                         }
                     }
-
                     t.Commit();
                 }
                 tg.Assimilate();

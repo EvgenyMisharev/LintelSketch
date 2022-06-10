@@ -1,0 +1,7 @@
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2020\LintelSketch.csproj.CoreCompileInputs.cache
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\bin\R2020\LintelSketch.dll.config
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\bin\R2020\LintelSketch.dll
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\bin\R2020\LintelSketch.pdb
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2020\LintelSketch.dll
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2020\LintelSketch.pdb
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2020\LintelSketch.csproj.AssemblyReference.cache
