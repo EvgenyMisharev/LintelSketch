@@ -1,0 +1,7 @@
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\bin\R2023\LintelSketch.dll.config
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\bin\R2023\LintelSketch.dll
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\bin\R2023\LintelSketch.pdb
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2023\LintelSketch.csproj.AssemblyReference.cache
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2023\LintelSketch.csproj.CoreCompileInputs.cache
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2023\LintelSketch.dll
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2023\LintelSketch.pdb

@@ -273,7 +273,7 @@ namespace LintelSketch
                                 string scetchImagePath = Path.Combine(scetchTemplateFolderPath, $"{imagesPrefix}_{symbolNameFormat}.bmp");
                                 templateImage.Save(scetchImagePath);
 
-#if R2019 || R2020 || R2021
+#if R2019 || R2020 || R2021 
                                 ImageType newLintelImageType = ImageType.Create(doc, scetchImagePath);
                                 lint.LookupParameter("LintelImage").Set(newLintelImageType.Id);
                                 File.Delete(scetchImagePath);
