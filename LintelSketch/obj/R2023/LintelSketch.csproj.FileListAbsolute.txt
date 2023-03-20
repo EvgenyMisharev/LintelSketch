@@ -5,3 +5,5 @@ C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\Linte
 C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2023\LintelSketch.csproj.CoreCompileInputs.cache
 C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2023\LintelSketch.dll
 C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2023\LintelSketch.pdb
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2023\LintelSketch.csproj.GenerateResource.cache
+C:\Doc\00_CITRUSv2\RibbonCITRUS\RibbonCITRUS\RibbonCITRUSData\LintelSketch\LintelSketch\obj\R2023\LintelSketch.Properties.Resources.resources
